@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<String> mDataset;
+    private Context cont;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -47,8 +48,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<String> myDataset) {
+    public MyAdapter(List<String> myDataset, Context c) {
         mDataset = myDataset;
+        cont = c;
     }
 
     // Create new views (invoked by the layout manager)
@@ -61,7 +63,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v, new MyAdapter.ViewHolder.IMyViewHolderClicks() {
-            public void onButtonClick(Button callerImage) { Log.d("----------------", callerImage.getText().toString()); }
+            public void onButtonClick(Button callerImage)
+            {
+                Log.d("----------------", callerImage.getText().toString());
+                Intent i = new Intent(cont, ExpensesDetails.class);
+                i.putExtra("date", callerImage.getText().toString());
+                cont.startActivity(i);
+            }
         });
         return vh;
     }

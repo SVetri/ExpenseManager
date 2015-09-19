@@ -6,5 +6,31 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_update">UpdateActivity</string>
     <string name="title_activity_expenses_details">ExpensesDetails</string>
+    <string name="title_activity_add_expense">AddExpenseActivity</string>
+
+    <string name="places_prompt">Places</string>
+
+    <string-array name="places_array">
+        <item>Nescafe/Bru/Coke/Aavin</item>
+        <item>Classics</item>
+        <item>Staff Canteen</item>
+        <item>Pandias</item>
+        <item>Srinidhis</item>
+        <item>Dhaba</item>
+        <item>CCD</item>
+        <item>Dominos</item>
+        <item>Pizza Hut</item>
+        <item>Srinidhis</item>
+        <item>Tent</item>
+        <item>Buhari</item>
+        <item>HKB</item>
+        <item>Vasantham</item>
+        <item>Other Restaurant</item>
+        <item>Gurunath</item>
+        <item>Movie</item>
+        <item>Online Shopping</item>
+        <item>Miscellaneous</item>
+        <item>Trip</item>
+    </string-array>
 
 </resources>

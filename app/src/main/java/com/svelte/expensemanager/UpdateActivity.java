@@ -16,11 +16,14 @@ public class UpdateActivity extends ActionBarActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    DatabaseHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+
+        db = DatabaseHandler.getInstance(this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
@@ -29,17 +32,27 @@ public class UpdateActivity extends ActionBarActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new MyAdapter(fetchDates());
+        List<Expense> dates = new ArrayList<Expense>();
+        dates = fetchDates();
+        List<String> datestr = new ArrayList<String>();
+        for(int i = 0; i<dates.size(); i++)
+        {
+            datestr.add(dates.get(i)._date);
+        }
+        mAdapter = new MyAdapter(datestr, this);
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public List<String> fetchDates()
+    public List<Expense> fetchDates()
     {
-        List<String> mydates = new ArrayList<String>();
-        for(int i = 0; i<30; i++)
+        List<Expense> mydates = new ArrayList<Expense>();
+
+        mydates = db.getDateList();
+
+        /*for(int i = 0; i<30; i++)
         {
             mydates.add(i, "September " + (i+1) + ", 2015");
-        }
+        }*/
 
         return mydates;
     }

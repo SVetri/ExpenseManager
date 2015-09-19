@@ -16,8 +16,19 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DatabaseHandler db = DatabaseHandler.getInstance(this);
+
+        Button addbutton = (Button) findViewById(R.id.add_button);
         Button updbutton = (Button) findViewById(R.id.update_button);
         Button statsbutton = (Button) findViewById(R.id.stats_button);
+
+        addbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, AddExpenseActivity.class);
+                startActivity(i);
+            }
+        });
 
         updbutton.setOnClickListener(new View.OnClickListener() {
             @Override

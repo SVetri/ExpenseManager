@@ -18,7 +18,11 @@
         </activity>
         <activity
             android:name=".UpdateActivity"
-            android:label="@string/title_activity_update" >
+            android:label="@string/title_activity_update"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.svelte.expensemanager.MainActivity" />
         </activity>
         <activity
             android:name=".ExpensesDetails"
@@ -27,6 +31,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.svelte.expensemanager.UpdateActivity" />
+        </activity>
+        <activity
+            android:name=".AddExpenseActivity"
+            android:label="@string/title_activity_add_expense"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.svelte.expensemanager.MainActivity" />
         </activity>
     </application>
 

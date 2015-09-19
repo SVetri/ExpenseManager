@@ -3,53 +3,52 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:weightSum="3"
-    android:orientation="vertical">
+    tools:context="com.svelte.expensemanager.AddExpenseActivity">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/add_button"
-            android:text="Today's Expenses"
-            android:padding="50dp"
-            android:layout_centerInParent="true"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-    <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/update_button"
-        android:text="History"
-        android:padding="50dp"
-        android:layout_centerInParent="true"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Spinner
+            android:id="@+id/expenseplace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/places_array"
+            android:layout_centerInParent="true"
+            android:prompt="@string/places_prompt"/>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/expensecost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cost"
+            android:layout_centerInParent="true"
+            android:inputType="number"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/expenseadd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/stats_button"
-            android:text="Statistics"
-            android:layout_weight="1"
-            android:padding="50dp"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:text="Add"/>
 
     </RelativeLayout>
 
